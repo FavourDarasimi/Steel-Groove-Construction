@@ -41,7 +41,7 @@ export default function Contact() {
               <span className="inline-block border border-ghost text-caption text-ghost px-3 py-1 rounded-[4.5px] mb-6">
                 GET IN TOUCH
               </span>
-              <h1 className="text-display-xl text-ghost max-w-4xl mb-6">
+              <h1 className="text-[clamp(2.5rem,8vw,77px)] text-ghost max-w-4xl mb-6 leading-[0.9] tracking-[-0.04em]">
                 Let&rsquo;s start<br />a conversation.
               </h1>
               <p className="text-heading text-ash max-w-[560px]">

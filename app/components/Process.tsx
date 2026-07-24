@@ -64,7 +64,7 @@ export default function Process() {
                   }`}
                 >
                   {/* Content */}
-                  <div className={`flex-1 ${isEven ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
+                  <div className={`flex-1 ${isEven ? "md:pr-12 pl-5 md:text-right" : "md:pl-12 pl-5"}`}>
                     <span className="block text-caption text-ash mb-3">{step.number}</span>
                     <h3 className="text-heading text-ghost mb-3">{step.title}</h3>
                     <p className={`text-body text-ash max-w-[440px] leading-[1.6] ${isEven ? "md:ml-auto" : ""}`}>{step.body}</p>
