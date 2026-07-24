@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import s1 from "@/public/images/service-1.svg";
-import s2 from "@/public/images/service-2.svg";
-import s3 from "@/public/images/service-3.svg";
-import s4 from "@/public/images/service-4.svg";
+import s1 from "@/public/images/service-1.jpg";
+import s2 from "@/public/images/service-2.jpg";
+import s3 from "@/public/images/service-3.jpg";
+import s4 from "@/public/images/service-4.jpg";
 
 const services = [
   {

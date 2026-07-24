@@ -21,7 +21,7 @@ export default function Nav() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-obsidian">
         <motion.div
           className="border-b"
-          style={{ borderColor: scrolled ? "rgba(255,255,255,1)" : "rgba(255,255,255,0)" }}
+          style={{ borderColor: scrolled ? "rgba(128, 128, 128, 1) " : "rgba(255,255,255,0)" }}
           transition={{ duration: 0.3 }}
         >
           <div className="flex items-center justify-between py-5 px-6 md:px-12">
@@ -58,9 +58,19 @@ export default function Nav() {
               ))}
               <a
                 href="mailto:info@steelgrooveconstruction.com"
-                className="inline-block border border-ghost text-caption text-ghost px-5 py-2 rounded-[4.5px] bg-transparent no-underline hover:opacity-60 transition-opacity duration-200"
+                className="group inline-flex items-center gap-2 border border-ghost text-caption text-ghost px-5 py-2 rounded-[4.5px] bg-transparent no-underline hover:opacity-60 transition-opacity duration-200"
               >
                 Make an Enquiry
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  <path d="M3 8H13" stroke="currentColor" strokeWidth="1" />
+                  <path d="M9 4L13 8L9 12" stroke="currentColor" strokeWidth="1" />
+                </svg>
               </a>
             </div>
 
@@ -104,10 +114,20 @@ export default function Nav() {
           ))}
           <a
             href="mailto:info@steelgrooveconstruction.com"
-            className="inline-block border border-ghost text-body text-ghost px-8 py-3 rounded-[4.5px] bg-transparent no-underline hover:opacity-60 transition-opacity duration-200 mt-4"
+            className="group inline-flex items-center gap-2 border border-ghost text-body text-ghost px-8 py-3 rounded-[4.5px] bg-transparent no-underline hover:opacity-60 transition-opacity duration-200 mt-4"
             onClick={() => setMenuOpen(false)}
           >
             Make an Enquiry
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            >
+              <path d="M3 8H13" stroke="currentColor" strokeWidth="1" />
+              <path d="M9 4L13 8L9 12" stroke="currentColor" strokeWidth="1" />
+            </svg>
           </a>
         </motion.div>
       )}

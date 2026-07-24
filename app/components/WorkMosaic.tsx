@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import img1 from "@/public/images/mosaic-1.svg";
-import img2 from "@/public/images/mosaic-2.svg";
-import img3 from "@/public/images/mosaic-3.svg";
-import img4 from "@/public/images/mosaic-4.svg";
-import img5 from "@/public/images/mosaic-5.svg";
-import img6 from "@/public/images/mosaic-6.svg";
+import img1 from "@/public/images/mosaic-1.jpg";
+import img2 from "@/public/images/mosaic-2.jpg";
+import img3 from "@/public/images/mosaic-3.jpg";
+import img4 from "@/public/images/mosaic-4.jpg";
+import img5 from "@/public/images/mosaic-5.jpg";
+import img6 from "@/public/images/mosaic-6.jpg";
 
 const projects = [
   { src: img1, category: "COMMERCIAL", title: "Riverfront Tower" },
@@ -58,12 +58,13 @@ export default function WorkMosaic() {
               fill
               className="object-cover"
             />
+            <div className="absolute inset-0 bg-black/40 z-[1]" />
             {/* Category badge */}
             <span className="absolute top-3 left-3 z-10 inline-block border border-ghost text-caption text-ghost px-3 py-1 rounded-[4.5px]">
               {project.category}
             </span>
             {/* Bottom gradient scrim + title */}
-            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/60 to-transparent z-[1]" />
+            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/70 to-transparent z-[2]" />
             <span className="absolute bottom-3 left-3 z-10 text-heading-sm text-ghost">
               {project.title}
             </span>

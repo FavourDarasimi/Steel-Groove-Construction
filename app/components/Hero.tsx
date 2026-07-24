@@ -97,23 +97,20 @@ export default function Hero() {
       </div>
 
       {/* Foreground content */}
-      <div className="relative z-[2] flex flex-col items-center justify-center h-full px-6 md:px-12 text-center">
+      <div className="relative z-[2] flex flex-col items-center justify-center h-full px-6 md:px-12 pt-20 text-center">
         <motion.div {...fadeIn(0)}>
-          <div className="flex gap-3 mb-8 justify-center">
-            <span className="inline-flex items-center gap-2 border border-ghost text-caption text-ghost px-3 py-1 rounded-[4.5px]">
-              <span className="w-[1px] h-3 bg-ash/50" />
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mb-8 justify-center">
+            <span className="inline-flex items-center gap-2 border border-ghost text-caption text-ghost px-3 py-1 rounded-[4.5px] whitespace-nowrap">
+              <span className="w-[1px] h-3 bg-gray-500 animate-spin" />
               GENERAL CONTRACTING
             </span>
-            <span className="inline-flex items-center gap-2 border border-ghost text-caption text-ghost px-3 py-1 rounded-[4.5px]">
-              <span className="w-[1px] h-3 bg-ash/50" />
-              DESIGN-BUILD
-            </span>
+
           </div>
         </motion.div>
 
         <motion.h1
           {...fadeIn(1)}
-          className={`${blanka.className} text-[clamp(3.5rem,15vw,9rem)] text-ghost max-w-6xl leading-[0.85] tracking-[-0.06em] mb-8`}
+          className={`${blanka.className} text-[clamp(4.5rem,14vw,9rem)] text-ghost max-w-6xl leading-[0.85] tracking-[-0.06em] mb-8`}
         >
           WE BUILD<br />WHAT LASTS
         </motion.h1>
@@ -129,9 +126,19 @@ export default function Hero() {
         <motion.div {...fadeIn(3)} className="mt-10">
           <a
             href="mailto:info@steelgrooveconstruction.com"
-            className="inline-block border border-ghost text-body text-ghost px-8 py-3 rounded-[4.5px] bg-transparent no-underline hover:opacity-60 transition-opacity duration-200"
+            className="group inline-flex items-center gap-2 border border-ghost text-body text-ghost px-8 py-3 rounded-[4.5px] bg-transparent no-underline hover:opacity-60 transition-opacity duration-200"
           >
             Make an Enquiry
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            >
+              <path d="M3 8H13" stroke="currentColor" strokeWidth="1" />
+              <path d="M9 4L13 8L9 12" stroke="currentColor" strokeWidth="1" />
+            </svg>
           </a>
         </motion.div>
       </div>

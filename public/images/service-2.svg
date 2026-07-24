@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="500" viewBox="0 0 600 500">
-  <rect width="600" height="500" fill="#181818"/>
-  <g stroke="#3a3a3a" stroke-width="1" fill="none">
-    <polygon points="300,100 550,300 300,450 50,300"/>
-    <polygon points="300,180 450,300 300,380 150,300"/>
-    <line x1="300" y1="100" x2="300" y2="450" stroke-dasharray="3 5"/>
-    <line x1="50" y1="300" x2="550" y2="300" stroke-dasharray="3 5"/>
-  </g>
-</svg>
