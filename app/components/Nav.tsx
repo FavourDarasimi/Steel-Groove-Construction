@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu01Icon } from "hugeicons-react";
 
 const navLinks = ["Home", "Work", "Services", "Contact"];
@@ -18,13 +18,13 @@ export default function Nav() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-obsidian">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-obsidian/70 backdrop-blur-lg">
         <motion.div
           className="border-b"
           style={{ borderColor: scrolled ? "rgba(128, 128, 128, 1) " : "rgba(255,255,255,0)" }}
           transition={{ duration: 0.3 }}
         >
-          <div className="flex items-center justify-between py-5 px-6 md:px-12">
+          <div className="flex items-center justify-between py-5 px-6 md:px-12 mx-auto max-w-[1500px]">
             {/* Logo */}
             <a href="/" className="flex items-center gap-3 no-underline">
               <svg
@@ -50,14 +50,14 @@ export default function Nav() {
               {navLinks.map((link) => (
                 <a
                   key={link}
-                  href={link === "Home" ? "/" : `/#${link.toLowerCase()}`}
+                  href={link === "Home" ? "/" : link === "Contact" ? "/contact" : `/#${link.toLowerCase()}`}
                   className="text-body text-ghost no-underline hover:opacity-60 transition-opacity duration-200"
                 >
                   {link}
                 </a>
               ))}
               <a
-                href="mailto:info@steelgrooveconstruction.com"
+                href="/contact"
                 className="group inline-flex items-center gap-2 border border-ghost text-caption text-ghost px-5 py-2 rounded-[4.5px] bg-transparent no-underline hover:opacity-60 transition-opacity duration-200"
               >
                 Make an Enquiry
@@ -87,6 +87,7 @@ export default function Nav() {
       </nav>
 
       {/* Mobile overlay */}
+      <AnimatePresence>
       {menuOpen && (
         <motion.div
           className="fixed inset-0 z-50 bg-obsidian flex flex-col items-center justify-center gap-8"
@@ -97,15 +98,17 @@ export default function Nav() {
         >
           <button
             onClick={() => setMenuOpen(false)}
-            className="absolute top-5 right-6 md:right-12 text-ghost text-heading-sm"
+            className="absolute top-5 right-6 md:right-12 text-ghost"
             aria-label="Close menu"
           >
-            CLOSE
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+              <path d="M6 6L18 18M18 6L6 18" />
+            </svg>
           </button>
           {navLinks.map((link) => (
             <a
               key={link}
-              href={link === "Home" ? "/" : `/#${link.toLowerCase()}`}
+              href={link === "Home" ? "/" : link === "Contact" ? "/contact" : `/#${link.toLowerCase()}`}
               className="text-heading text-ghost no-underline hover:opacity-60 transition-opacity duration-200"
               onClick={() => setMenuOpen(false)}
             >
@@ -113,7 +116,7 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href="mailto:info@steelgrooveconstruction.com"
+            href="/contact"
             className="group inline-flex items-center gap-2 border border-ghost text-body text-ghost px-8 py-3 rounded-[4.5px] bg-transparent no-underline hover:opacity-60 transition-opacity duration-200 mt-4"
             onClick={() => setMenuOpen(false)}
           >
@@ -131,6 +134,7 @@ export default function Nav() {
           </a>
         </motion.div>
       )}
+      </AnimatePresence>
     </>
   );
 }

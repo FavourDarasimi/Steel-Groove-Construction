@@ -19,25 +19,26 @@ const projects = [
 ];
 
 const gridClasses = [
-  "col-span-6 row-span-2",     // 1 - large
-  "col-span-6 row-span-2",     // 2 - large
-  "col-span-4 row-span-1",     // 3 - medium
-  "col-span-4 row-span-1",     // 4 - medium
-  "col-span-4 row-span-1",     // 5 - medium
-  "col-span-12 row-span-1",    // 6 - full width
+  "col-span-12 md:col-span-6 md:row-span-2",     // 1 - large
+  "col-span-12 md:col-span-6 md:row-span-2",     // 2 - large
+  "col-span-12 md:col-span-4 md:row-span-1",     // 3 - medium
+  "col-span-12 md:col-span-4 md:row-span-1",     // 4 - medium
+  "col-span-12 md:col-span-4 md:row-span-1",     // 5 - medium
+  "col-span-12 md:col-span-12 md:row-span-1",    // 6 - full width
 ];
 
 export default function WorkMosaic() {
   return (
-    <section className="px-6 md:px-12 py-[144px] md:py-[173px]">
-      <div className="mb-14">
-        <h2 className="text-display text-ghost mb-3">Selected Work</h2>
-        <p className="text-body text-ash max-w-[480px]">
-          A curated selection of projects spanning commercial, residential, and civic work.
-        </p>
-      </div>
+    <section id="work" className="py-[144px] md:py-[173px]">
+      <div className="mx-auto max-w-[1500px] px-6 md:px-12">
+        <div className="mb-14">
+          <h2 className="text-display text-ghost mb-3">Selected Work</h2>
+          <p className="text-body text-ash max-w-[480px]">
+            A curated selection of projects spanning commercial, residential, and civic work.
+          </p>
+        </div>
 
-      <div className="grid grid-cols-12 auto-rows-[200px] md:auto-rows-[280px] gap-0">
+        <div className="grid grid-cols-12 auto-rows-[200px] md:auto-rows-[280px] gap-0">
         {projects.map((project, i) => (
           <motion.div
             key={project.category}
@@ -70,6 +71,7 @@ export default function WorkMosaic() {
             </span>
           </motion.div>
         ))}
+        </div>
       </div>
     </section>
   );

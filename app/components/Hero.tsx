@@ -39,7 +39,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section id="home" className="relative h-screen w-full overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -97,7 +97,7 @@ export default function Hero() {
       </div>
 
       {/* Foreground content */}
-      <div className="relative z-[2] flex flex-col items-center justify-center h-full px-6 md:px-12 pt-20 text-center">
+      <div className="relative z-[2] flex flex-col items-center justify-center h-full px-6 md:px-12 mx-auto max-w-[1500px] pt-20 text-center">
         <motion.div {...fadeIn(0)}>
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mb-8 justify-center">
             <span className="inline-flex items-center gap-2 border border-ghost text-caption text-ghost px-3 py-1 rounded-[4.5px] whitespace-nowrap">
@@ -110,7 +110,7 @@ export default function Hero() {
 
         <motion.h1
           {...fadeIn(1)}
-          className={`${blanka.className} text-[clamp(4.5rem,14vw,9rem)] text-ghost max-w-6xl leading-[0.85] tracking-[-0.06em] mb-8`}
+          className={`text-[clamp(3rem,14vw,9rem)] text-ghost max-w-6xl leading-[0.85] tracking-[-0.06em] mb-8 font-bold`}
         >
           WE BUILD<br />WHAT LASTS
         </motion.h1>
@@ -125,7 +125,7 @@ export default function Hero() {
 
         <motion.div {...fadeIn(3)} className="mt-10">
           <a
-            href="mailto:info@steelgrooveconstruction.com"
+            href="/contact"
             className="group inline-flex items-center gap-2 border border-ghost text-body text-ghost px-8 py-3 rounded-[4.5px] bg-transparent no-underline hover:opacity-60 transition-opacity duration-200"
           >
             Make an Enquiry
@@ -143,13 +143,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        {...fadeIn(4)}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-[2]"
-      >
-        <ScrollIndicator />
-      </motion.div>
+
     </section>
   );
 }

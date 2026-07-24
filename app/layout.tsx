@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.className}>
+      <html lang="en" className={`${inter.className} scroll-smooth`}>
       <body className="bg-obsidian text-ghost antialiased">{children}</body>
     </html>
   );
