@@ -54,11 +54,11 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
         {services.map((service) => (
           <motion.div
             key={service.category}
-            className="relative w-full aspect-[4/5] overflow-hidden group"
+            className="relative w-full aspect-[3/4] sm:aspect-[4/5] overflow-hidden group"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -69,18 +69,19 @@ export default function Services() {
                 src={service.src}
                 alt={service.title}
                 fill
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, (max-width: 1279px) 33vw, 25vw"
                 className="object-cover"
               />
             </div>
-            <div className="absolute inset-0 bg-paper/50 z-[1] transition-opacity duration-300 group-hover:opacity-30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-paper/95 via-paper/50 to-paper/20 z-[1] transition-opacity duration-300 group-hover:opacity-80" />
 
-            <span className="absolute top-5 left-5 z-10 inline-block border border-ink/60 text-caption text-ink px-3 py-1 rounded-[4.5px] transition-colors duration-300 group-hover:border-accent group-hover:text-accent">
+            <span className="absolute top-4 left-4 sm:top-5 sm:left-5 z-10 inline-block border border-ink/60 text-caption text-ink px-2.5 py-1 sm:px-3 rounded-[4.5px] transition-colors duration-300 group-hover:border-accent group-hover:text-accent">
               {service.category}
             </span>
 
-            <div className="absolute bottom-0 left-0 right-0 z-10 p-5">
+            <div className="absolute bottom-0 left-0 right-0 z-10 p-4 sm:p-5 md:p-5">
               <h3 className="font-display text-heading-sm text-ink mb-1 font-[600]">{service.title}</h3>
-              <p className="text-caption text-muted/70 max-w-[440px]">{service.body}</p>
+              <p className="text-caption sm:text-caption text-muted/70 max-w-[440px] leading-[1.4] sm:leading-[1.43]">{service.body}</p>
             </div>
           </motion.div>
         ))}
