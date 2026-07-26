@@ -7,7 +7,7 @@ import s2 from "@/public/images/service-2.jpg";
 import s3 from "@/public/images/service-3.jpg";
 import s4 from "@/public/images/service-4.jpg";
 
-const ease = [0.22, 1, 0.36, 1] as const;
+const ease = [0.16, 1, 0.3, 1] as const;
 
 const services = [
   {
@@ -45,8 +45,11 @@ export default function Services() {
     <section id="services" className="py-[144px] md:py-[173px]">
       <div className="mx-auto max-w-[1500px] px-6 md:px-12">
         <div className="mb-14">
-          <h2 className="text-display text-ghost mb-3">Services</h2>
-          <p className="text-body text-ash max-w-[480px]">
+          <div className="flex items-center gap-4 mb-4">
+            <span className="w-6 h-px bg-accent/60" />
+            <span className="text-caption text-muted tracking-widest">SERVICES</span>
+          </div>
+          <p className="text-body text-muted/80 max-w-[480px]">
             Every capability we offer, from first sketch to final punch.
           </p>
         </div>
@@ -61,41 +64,24 @@ export default function Services() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease }}
           >
-            <motion.div
-              className="absolute inset-0"
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.4, ease }}
-            >
+            <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-105">
               <Image
                 src={service.src}
                 alt={service.title}
                 fill
-                className="object-cover group-hover:scale-105 transition-all duration-500 rounded-[8px]"
+                className="object-cover"
               />
-            </motion.div>
-            <motion.div
-              className="absolute inset-0 bg-black/50 z-[1]"
-              whileHover={{ backgroundColor: "rgba(0,0,0,0.65)" }}
-              transition={{ duration: 0.3 }}
-            />
+            </div>
+            <div className="absolute inset-0 bg-paper/50 z-[1] transition-opacity duration-300 group-hover:opacity-30" />
 
-            {/* Category badge */}
-            <span className="absolute top-5 left-5 z-10 inline-block border border-ghost text-caption text-ghost px-3 py-1 rounded-[4.5px]">
+            <span className="absolute top-5 left-5 z-10 inline-block border border-ink/60 text-caption text-ink px-3 py-1 rounded-[4.5px] transition-colors duration-300 group-hover:border-accent group-hover:text-accent">
               {service.category}
             </span>
 
-            {/* Meta */}
-
-
-            {/* Bottom content */}
-            <motion.div
-              className="absolute bottom-0 left-0 right-0 z-10 p-5"
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.3, ease }}
-            >
-              <h3 className="text-heading-sm text-ghost mb-1">{service.title}</h3>
-              <p className="text-caption text-ghost/70 max-w-[440px]">{service.body}</p>
-            </motion.div>
+            <div className="absolute bottom-0 left-0 right-0 z-10 p-5">
+              <h3 className="font-display text-heading-sm text-ink mb-1 font-[600]">{service.title}</h3>
+              <p className="text-caption text-muted/70 max-w-[440px]">{service.body}</p>
+            </div>
           </motion.div>
         ))}
         </div>

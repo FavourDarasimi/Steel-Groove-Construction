@@ -1,18 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import localFont from "next/font/local";
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import heroBg from "@/public/images/hero-bg.jpg";
 import ScrollIndicator from "./ScrollIndicator";
 
-const blanka = localFont({
-  src: "../fonts/Blanka-Regular.otf",
-  display: "swap",
-  weight: "400",
-});
-
-const ease = [0.22, 1, 0.36, 1] as const;
+const ease = [0.16, 1, 0.3, 1] as const;
 
 const stagger = (i: number) => ({
   initial: { opacity: 0, y: 16 },
@@ -40,93 +34,63 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden">
-      {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
           src={heroBg}
           alt=""
           fill
-          className="object-cover opacity-50"
+          className="object-cover opacity-40"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-paper/60 via-paper/20 to-paper/80" />
       </div>
 
-      {/* Decorative concentric circles */}
       <div className="absolute inset-0 z-[1] flex items-center justify-center pointer-events-none">
         <svg
           width="80%"
           height="80%"
           viewBox="0 0 800 800"
           preserveAspectRatio="xMidYMid meet"
-          className="opacity-20"
+          className="opacity-15"
         >
-          <circle
-            cx="400"
-            cy="400"
-            r="120"
-            fill="none"
-            stroke="#5a5a5a"
-            strokeWidth="1"
-          />
-          <circle
-            cx="400"
-            cy="400"
-            r="200"
-            fill="none"
-            stroke="#5a5a5a"
-            strokeWidth="1"
-          />
-          <circle
-            cx="400"
-            cy="400"
-            r="280"
-            fill="none"
-            stroke="#5a5a5a"
-            strokeWidth="1"
-          />
-          <circle
-            cx="400"
-            cy="400"
-            r="360"
-            fill="none"
-            stroke="#5a5a5a"
-            strokeWidth="1"
-          />
+          <circle cx="400" cy="400" r="120" fill="none" stroke="currentColor" strokeWidth="1" className="text-muted/50" />
+          <circle cx="400" cy="400" r="200" fill="none" stroke="currentColor" strokeWidth="1" className="text-muted/40" />
+          <circle cx="400" cy="400" r="280" fill="none" stroke="currentColor" strokeWidth="1" className="text-muted/30" />
+          <circle cx="400" cy="400" r="360" fill="none" stroke="currentColor" strokeWidth="1" className="text-muted/20" />
         </svg>
       </div>
 
-      {/* Foreground content */}
-      <div className="relative z-[2] flex flex-col items-center justify-center h-full px-6 md:px-12 mx-auto max-w-[1500px] pt-20 text-center">
+      <div className="relative z-[2] flex flex-col items-start justify-center h-full px-6 md:px-12 mx-auto max-w-[1500px] pt-20">
         <motion.div {...fadeIn(0)}>
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mb-8 justify-center">
-            <span className="inline-flex items-center gap-2 border border-ghost text-caption text-ghost px-3 py-1 rounded-[4.5px] whitespace-nowrap">
-              <span className="w-[1px] h-3 bg-gray-500 animate-spin" />
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mb-8">
+            <span className="inline-flex items-center gap-2 border border-rule text-caption text-ink/70 px-3 py-1 rounded-[4.5px] whitespace-nowrap">
               GENERAL CONTRACTING
             </span>
-
+            <span className="inline-flex items-center gap-2 border border-accent/40 text-caption text-accent px-3 py-1 rounded-[4.5px] whitespace-nowrap">
+              DESIGN-BUILD
+            </span>
           </div>
         </motion.div>
 
         <motion.h1
           {...fadeIn(1)}
-          className={`text-[clamp(3rem,14vw,9rem)] text-ghost max-w-6xl leading-[0.85] tracking-[-0.06em] mb-8 font-bold`}
+          className="font-display text-[clamp(3rem,14vw,8rem)] text-ink max-w-5xl leading-[0.85] tracking-[-0.06em] mb-8 font-[600]"
         >
           WE BUILD<br />WHAT LASTS
         </motion.h1>
 
         <motion.p
           {...fadeIn(2)}
-          className="text-heading text-ghost/70 max-w-[560px] leading-[1.2] pt-5"
+          className="text-heading text-muted max-w-[560px] leading-[1.2]"
         >
           A design-build general contracting firm rooted in craft, precision,
           and the belief that great buildings endure.
         </motion.p>
 
         <motion.div {...fadeIn(3)} className="mt-10">
-          <a
+          <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 border border-ghost text-body text-ghost px-8 py-3 rounded-[4.5px] bg-transparent no-underline hover:opacity-60 transition-opacity duration-200"
+            className="inline-flex items-center gap-2 border border-accent text-body text-accent px-8 py-3 rounded-[4.5px] bg-transparent no-underline hover:opacity-80 transition-opacity duration-[var(--dur-short)]"
           >
             Make an Enquiry
             <svg
@@ -139,11 +103,13 @@ export default function Hero() {
               <path d="M3 8H13" stroke="currentColor" strokeWidth="1" />
               <path d="M9 4L13 8L9 12" stroke="currentColor" strokeWidth="1" />
             </svg>
-          </a>
+          </Link>
         </motion.div>
       </div>
 
-
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[2]">
+        <ScrollIndicator />
+      </div>
     </section>
   );
 }

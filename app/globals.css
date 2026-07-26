@@ -1,9 +1,25 @@
+/* Hallmark · genre: editorial · macrostructure: Marquee Hero · theme: Brass & Charcoal (custom) · enrichment: none · nav: N9 · footer: Ft5
+ * Pre-emit critique: P5 H4 E4 S5 R4 V4
+ * paper-band: dark (L < 30%) · display-style: serif · accent-hue: warm (gold 75°)
+ */
+
 @import "tailwindcss";
 
 @theme {
-  --color-obsidian: #000000;
-  --color-ash: #999999;
-  --color-ghost: #ffffff;
+  --color-paper: oklch(13% 0.01 40);
+  --color-paper-2: oklch(17% 0.012 40);
+  --color-obsidian: oklch(13% 0.01 40);
+  --color-ash: oklch(55% 0.008 40);
+  --color-ghost: oklch(93% 0.005 40);
+  --color-ink: oklch(93% 0.005 40);
+  --color-rule: oklch(30% 0.01 40);
+  --color-neutral: oklch(55% 0.008 40);
+  --color-muted: oklch(72% 0.006 40);
+  --color-accent: oklch(72% 0.12 75);
+  --color-focus: oklch(72% 0.14 75);
+
+  --font-display: var(--font-display), Georgia, serif;
+  --font-body: var(--font-body), system-ui, sans-serif;
 
   --text-caption: 14px;
   --text-caption--line-height: 1.43;
@@ -21,23 +37,44 @@
   --text-heading-lg: 32px;
   --text-heading-lg--line-height: 1.0;
   --text-heading-lg--letter-spacing: -1.18px;
-  --text-display: 50px;
+  --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
   --text-display--line-height: 1.0;
   --text-display--letter-spacing: -2.2px;
-  --text-display-xl: 77px;
+  --text-display-xl: clamp(3.5rem, 8vw + 1rem, 6.5rem);
   --text-display-xl--line-height: 0.9;
   --text-display-xl--letter-spacing: -4.31px;
 
   --radius-badge: 4.5px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+}
+
+html {
+  overflow-x: clip;
 }
 
 body {
-  background: var(--color-obsidian);
-  color: var(--color-ghost);
+  overflow-x: clip;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
   font-weight: 400;
 }
 
 ::selection {
-  background: var(--color-ghost);
-  color: var(--color-obsidian);
+  background: var(--color-accent);
+  color: var(--color-paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 150ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 150ms !important;
+  }
 }

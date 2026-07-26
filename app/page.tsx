@@ -3,6 +3,7 @@ import Hero from "@/app/components/Hero";
 import About from "@/app/components/About";
 import Process from "@/app/components/Process";
 import WorkMosaic from "@/app/components/WorkMosaic";
+import Testimonials from "@/app/components/Testimonials";
 import Divider from "@/app/components/Divider";
 import Services from "@/app/components/Services";
 import Stats from "@/app/components/Stats";
@@ -18,6 +19,7 @@ export default function Home() {
       <About />
       <Process />
       <WorkMosaic />
+      <Testimonials />
       <Divider />
       <Services />
       <Stats />
